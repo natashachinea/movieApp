@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: lightgrey solid 1px;
+    min-width: 230px;
+    border-radius: 12px;
+    background:var(--light-blue);
+    box-shadow: #cccccc 0px 0px 5px 0px;
+
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.links {
+
+    line-height: 35px;
+}
+
+.categories li {
+    list-style: none;
+}
+
+
+.categories li:hover {
+    font-weight: bold;
+    background: #cccccc;
+    cursor: pointer;
+}
+
+ul:visited {
+    font-weight: bold;
+    background: #cccccc;
+}
+

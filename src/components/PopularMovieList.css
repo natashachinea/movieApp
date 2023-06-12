@@ -1,0 +1,63 @@
+.container-popular-movies {
+    overflow-x: visible;
+    height: 400px;
+    /*background-image: url("public/pawel-czerwinski-kiCnTXs79WA-unsplash.jpg");*/
+    /*background-size: cover;*/
+    /*background-repeat: repeat;*/
+}
+
+.tv-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+
+}
+
+
+.movie-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.movie-item img {
+    border-radius: 10px;
+    width: 150px;
+    height: 200px;
+}
+
+.subtitle {
+    color: #333333;
+    margin-bottom: 0%;
+}
+
+.title {
+    display: flex;
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0%;
+    align-self: flex-start;
+
+}
+
+.title a {
+    text-decoration: none;
+
+}
+
+.date {
+    display: flex;
+    align-self: flex-start;
+    color: black;
+    font-weight: 200;
+    font-size: 0.7rem;
+    margin-bottom: 0%;
+
+}
+
+
+
+

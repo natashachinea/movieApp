@@ -1,0 +1,36 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 90%;
+    margin: 0 auto;
+
+
+}
+
+.cover-container {
+
+    width: 100%;
+    background: var(--dark-blue);
+    color: white;
+    padding: 50px;
+
+}
+.movies-container {
+
+
+}
+
+.tv {
+    width: 100%;
+
+}
+
+
+
+.welcome {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
