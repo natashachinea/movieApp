@@ -1,6 +1,6 @@
  function Image({src, alt, ...others}) {
     const notFound = <img src='images/Screenshot 2023-06-07 at 17.33.58.png' alt="not found" />;
-    const image=
+
      return (
 
          <div>
