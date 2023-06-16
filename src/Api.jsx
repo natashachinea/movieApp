@@ -78,22 +78,22 @@ const getTVDetails = (tv_id) => {
     }
 
 
-const searchTerm = async (query, page = 1) => {
-    const apiKey = 'd4f76f51ce49c6ba9868883742e5fa03';
-    const apiUrl = `https://api.themoviedb.org/3/search/multi`;
-    const response = await axios.get(apiUrl, {
-        params: {
-            api_key: apiKey,
-            query,
-            page: page
-        }
-    });
-
-    return response.data;
-}
-
-
+// const searchTerm = async (query, page = 1) => {
+//     const apiKey = 'd4f76f51ce49c6ba9868883742e5fa03';
+//     const apiUrl = `https://api.themoviedb.org/3/search/multi`;
+//     const response = await axios.get(apiUrl, {
+//         params: {
+//             api_key: apiKey,
+//             query,
+//             page: page
+//         }
+//     });
+//
+//     return response.data;
+// }
 
 
-export {getPopularMovies, getMovieDetails, searchTerm, getPopularTV, getTVDetails, search};
+
+
+export {getPopularMovies, getMovieDetails, getPopularTV, getTVDetails, search};
 export default getPopularMovies;

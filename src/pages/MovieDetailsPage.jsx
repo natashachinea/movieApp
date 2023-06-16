@@ -42,3 +42,4 @@ function MovieDetailsPage() {
 
 export default MovieDetailsPage;
 
+//somewhere here I need a person component where I render actor pictures and previous movies they were in.

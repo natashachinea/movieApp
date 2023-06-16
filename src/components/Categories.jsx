@@ -1,6 +1,6 @@
 import './Categories.css';
 import {useNavigate} from "react-router-dom";
-function Categories({category, query, page}) {
+function Categories({ query, page}) {
     const navigate = useNavigate();
 
 const handleFilterClick = (category) => {
