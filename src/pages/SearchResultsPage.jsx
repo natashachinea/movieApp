@@ -12,6 +12,8 @@ const useStyles = createStyles((theme) => ({
         borderRadius: rem(10),
         border: 'lightgray solid 1px',
         maxHeight: rem(160),
+        minHeight: rem(160),
+        width: rem(1000),
         padding: rem(0),
         margin: rem(10),
         overflow: 'hidden',
@@ -85,7 +87,7 @@ function SearchResultsPage() {
                                       direction="row">
                                 <Card.Section className={classes.image}>
                                     <Link to={`/${result.media_type}/${result.id}`}>
-                                    <Image src={`https://image.tmdb.org/t/p/w300/${result.poster_path}`} alt={result.title}  />
+                                    <Image src={result.poster_path} alt={result.title}  />
                                     </Link>
                                 </Card.Section>
                                 <Card.Section className={classes.description} style={{margin: 0}}>

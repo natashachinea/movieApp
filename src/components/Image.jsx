@@ -1,10 +1,15 @@
- function Image({src, alt, ...others}) {
-    const notFound = <img src='images/Screenshot 2023-06-07 at 17.33.58.png' alt="not found" />;
+
+function Image({src, alt}) {
+
+     const style = {
+         width: '120px',
+         height: '100%',
+     }
 
      return (
-
          <div>
-             {<img src={src} alt={alt} />} ? {notFound}
+             {!!src ? <img src={`https://image.tmdb.org/t/p/w300/${src}`} alt={alt} style={style}/> :
+                 <img src={'images/no-image-icon-6.png'} style={style}/>}
          </div>
      );
  }
