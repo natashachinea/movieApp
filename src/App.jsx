@@ -1,10 +1,11 @@
-import { Routes, Route, Link, useSearchParams } from 'react-router-dom';
-import MovieDetailsPage from "./pages/MovieDetailsPage.jsx";
+import { Routes, Route } from 'react-router-dom';
+import DetailsPageByID from "./pages/MovieDetailsPage.jsx";
 import SearchResultsPage from "./pages/SearchResultsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import TVShowDetailsPage from "./pages/TVShowDetailsPage.jsx";
+// import TVShowDetailsPage from "./pages/TVShowDetailsPage.jsx";
 import {HeaderAction} from "./components/Header.jsx";
-import Categories from "./components/Categories.jsx";
+import MovieDetailsPage from "./pages/MovieDetailsPage.jsx";
+import TVShowDetailsPage from "./pages/TVShowDetailsPage.jsx";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/movie/:id" element={<MovieDetailsPage />} />
+                <Route path='/movie/:id' element={<MovieDetailsPage />} />
                 <Route path="/tv/:id" element={<TVShowDetailsPage />} />
                 <Route path="/search" element={<SearchResultsPage />} />
             </Routes>

@@ -39,10 +39,10 @@ const getPopularTV = () => {
 
 }
 //get movie by movie_id
-const getMovieDetails = (movie_id) => {
+const getMovieDetails = (id) => {
     const apiKey = 'd4f76f51ce49c6ba9868883742e5fa03';
 
-    return axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}`)
+    return axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
         .then(response => {
             return response.data;
         })

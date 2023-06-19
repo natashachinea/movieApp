@@ -96,20 +96,15 @@ function SearchResultsPage() {
                                           justify='flex-start'
                                           direction="column"
                                           gap='5px'>
-                                            <div>
-                                                {result.media_type === "tv" ? (
-                                                    <Link to={`/tv/${result.id}`}>
-                                                        <Text fz="sm" fw={700} className={classes.title}>{result.name}</Text>
-                                                    </Link>
-                                                ) : (
-                                                    <Link to={`/movie/${result.id}`}>
-                                                        <Text fz="sm" fw={700} className={classes.title}>{result.title}</Text>
-                                                    </Link>
-                                                )
-                                                }
+                                            <div className={classes.title}>
+                                                <Link to={`/tv/${result.id}`}>
+                                                    <Text fz="sm" fw={700}>{result.name}</Text>
+                                                </Link>
+                                                <Link to={`/movie/${result.id}`}>
+                                                    <Text fz="sm" fw={700}>{result.title}</Text>
+                                                </Link>
                                             </div>
-                                            <Text fz='xs' c='dimmed'> Rating: {result.vote_average}</Text>
-                                            <Text fz='sm' c='dimmed'>  {result.release_date}</Text>
+                                            <Text fz='xs' c='dimmed'> Release date: {result.release_date}{result.first_air_date}</Text>
                                             <Text mt='sm' c='dimmed' fz='xs' >
                                                 {result.overview}
                                             </Text>
@@ -131,3 +126,5 @@ export default SearchResultsPage;
 
 //details I need to fix:
 // 1. the search bar is not working properly (catch errors, misspells, missing images, and no found titles)
+//2. transform the vote average into rating stars or something similar
+// 3. render people list in the search results

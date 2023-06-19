@@ -1,4 +1,5 @@
-function RenderedDetails ({movie, genres, TVShow}) {
+import '../pages/MovieDetailsPage.css';
+function RenderedDetails ({ movie, genres, tv }) {
     if (movie) {
     return (
             <div>
@@ -25,26 +26,26 @@ function RenderedDetails ({movie, genres, TVShow}) {
                 </div>
             </div>
     )}
-    if (TVShow) {
+    if (tv) {
         return (
             <div>
                 <div className='bg-image' style={{
-                    backgroundImage: `url(https://image.tmdb.org/t/p/original/${TVShow.backdrop_path})`,
+                    backgroundImage: `url(https://image.tmdb.org/t/p/original/${tv.backdrop_path})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     opacity: '0.7',
                 }}></div>
                 <div className='movie-details-container'>
-                    <img src={`https://image.tmdb.org/t/p/w500/${TVShow.poster_path}`} alt={TVShow.name}/>
+                    <img src={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`} alt={tv.name}/>
                     <div className='movie-details'>
                         <div className='title-section'>
-                            <h2>{TVShow.name}</h2>
-                            <p>{TVShow.first_air_date} - {genres} - {TVShow.episode_run_time} mins</p>
+                            <h2>{tv.name}</h2>
+                            <p>{tv.first_air_date} - {genres} - {tv.episode_run_time} mins</p>
                         </div>
                         <div className='overview-section'>
-                            <h4>{TVShow.tagline}</h4>
+                            <h4>{tv.tagline}</h4>
                             <h3>Overview</h3>
-                            <p>{TVShow.overview}</p>
+                            <p>{tv.overview}</p>
                         </div>
                     </div>
                 </div>

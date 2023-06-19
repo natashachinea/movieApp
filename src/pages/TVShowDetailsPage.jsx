@@ -6,7 +6,6 @@ import RenderedDetails from "../components/RenderedDetails.jsx";
 function TVShowDetailsPage() {
     const [TVShow, setTVShow] = useState({});
     const [loading, setLoading] = useState(true);
-    console.log({TVShow})
     const { id } = useParams();
 
 
@@ -33,7 +32,7 @@ function TVShowDetailsPage() {
     }
     return (
         <div>
-            <RenderedDetails TVShow={TVShow} genres={genres}/>
+            <RenderedDetails tv={TVShow} genres={genres}/>
         </div>
     )
 }
