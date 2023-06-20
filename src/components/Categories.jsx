@@ -21,11 +21,11 @@ const handleFilterClick = (category) => {
                     <li className="tv-shows" onClick={() => {handleFilterClick('tv')}}>
                         TV Shows
                     </li>
-                    <li className="people" onClick={() => {handleFilterClick('person')}}>
-                        People
-                    </li>
                     <li className="collections" onClick={() => {handleFilterClick('collection')}}>
                         Collections
+                    </li>
+                    <li className="people" onClick={() => {handleFilterClick('person')}}>
+                        People
                     </li>
                     <li className="keywords" onClick={() => {handleFilterClick('keyword')}}>
                         Keywords
@@ -36,6 +36,7 @@ const handleFilterClick = (category) => {
                     <li className="networks" onClick={() => {handleFilterClick('network')}}>
                         Networks
                     </li>
+
                 </ul>
             </div>
         </div>

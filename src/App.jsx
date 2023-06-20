@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import DetailsPageByID from "./pages/MovieDetailsPage.jsx";
 import SearchResultsPage from "./pages/SearchResultsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-// import TVShowDetailsPage from "./pages/TVShowDetailsPage.jsx";
 import {HeaderAction} from "./components/Header.jsx";
 import MovieDetailsPage from "./pages/MovieDetailsPage.jsx";
 import TVShowDetailsPage from "./pages/TVShowDetailsPage.jsx";
@@ -21,6 +19,7 @@ function App() {
                 <Route path='/movie/:id' element={<MovieDetailsPage />} />
                 <Route path="/tv/:id" element={<TVShowDetailsPage />} />
                 <Route path="/search" element={<SearchResultsPage />} />
+
             </Routes>
         </div>
     );
