@@ -29,18 +29,12 @@ const useStyles = createStyles((theme) => ({
 }));
 function MediaCard({results}) {
     const {classes} = useStyles();
-    const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-
-    const search = location.pathname.includes("/search");
-    const isPerson = searchParams.get("category") === "person";
-
+    console.log(results)
 
 
     return (
         <div>
-            {search && !isPerson ? (
-                <div className="movie-card">
+            <div className="movie-card">
                     {results.map((result) => (
                         <Card className={classes.card} style={{padding: 0}} key={result.id}>
                             <Flex justify="flex-start"
@@ -74,15 +68,14 @@ function MediaCard({results}) {
                             </Flex>
                         </Card>
                     ))}
+            </div>
         </div>
-        ) : null}
-        { isPerson ? (
-            <div>
-                {results.map((result, index) => (
-                    <li key={index}>{result.name}</li>
-                ))}
-            </div> ) : null}
-        </div>);
+    )
 }
 
 export default MediaCard;
+
+//display date in card with Moth, day, year format.
+//display overview in card with 2 lines max.
+//tittle font bigger.
+
