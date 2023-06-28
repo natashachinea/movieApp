@@ -1,5 +1,5 @@
 import {Card, createStyles, Flex, rem, Text} from "@mantine/core";
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Image from "./Image.jsx";
 
 
@@ -29,7 +29,6 @@ const useStyles = createStyles((theme) => ({
 }));
 function MediaCard({results}) {
     const {classes} = useStyles();
-    console.log(results)
 
 
     return (

@@ -24,7 +24,7 @@ function PopularTV () {
             <BackgroundImage
                 sx={(theme) => ({
                     height: '100%',
-                    backgroundImage: theme.fn.gradient({ from: '#96F2D7', to: 'white', deg: 15 }),
+                    backgroundImage: theme.fn.gradient({ from: 'white', to: 'white', deg: 15 }),
                     color: theme.white,
                 })}>
             <h2 className='subtitle'>On TV</h2>

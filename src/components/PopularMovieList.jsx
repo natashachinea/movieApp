@@ -27,7 +27,7 @@ function PopularMovieList() {
             <BackgroundImage
                 sx={(theme) => ({
                     height: '100%',
-                    backgroundImage: theme.fn.gradient({ from: 'white', to: '#96F2D7', deg: 135 }),
+                    backgroundImage: theme.fn.gradient({ from: 'white', to: 'white', deg: 135 }),
                     color: theme.white,
                 })}>
 

@@ -35,7 +35,9 @@ function SearchResultsPage() {
             case "keyword":
             case "company":
             case "network":
-                return  <div>"keyword", "company", "network"</div>
+                return  <div>
+                    <ItemList results={results}/>
+                </div>
             case "person":
                 return <div>"person"</div>
 
