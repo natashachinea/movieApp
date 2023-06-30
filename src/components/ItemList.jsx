@@ -10,6 +10,7 @@ const useStyles = createStyles((theme) => ({
         padding: rem(0),
         height: "auto",
         maxWidth: rem(1500),
+
         display: 'flex',
         alignItems: 'center',
         listStyleType: 'none',
