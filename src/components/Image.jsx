@@ -9,7 +9,7 @@ function Image({src, alt}) {
      return (
          <div>
              {!!src ? <img src={`https://image.tmdb.org/t/p/w300/${src}`} alt={alt} style={style}/> :
-                 <img src={'images/no-image-icon-6.png'} style={style}/>}
+                 <img src={'https://placehold.co/400x550?text=Image+no+found'} style={style}/>}
          </div>
      );
  }

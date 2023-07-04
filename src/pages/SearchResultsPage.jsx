@@ -7,6 +7,7 @@ import { Pagination} from '@mantine/core';
 import Categories from "../components/Categories.jsx";
 import MediaCard from "../components/MediaCard.jsx";
 import ItemList from "../components/ItemList.jsx";
+import PersonCard from "../components/PersonCard.jsx";
 
 
 
@@ -39,7 +40,7 @@ function SearchResultsPage() {
                     <ItemList results={results}/>
                 </div>
             case "person":
-                return <div>"person"</div>
+                return <PersonCard results={results}/>
 
             default:
                 return <MediaCard results={results}/>

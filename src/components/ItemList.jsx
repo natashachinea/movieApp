@@ -10,7 +10,6 @@ const useStyles = createStyles((theme) => ({
         padding: rem(0),
         height: "auto",
         maxWidth: rem(1500),
-
         display: 'flex',
         alignItems: 'center',
         listStyleType: 'none',
@@ -26,11 +25,10 @@ function ItemList({results}) {
             {results.map((result, index) => (
                 <div key={index} >
                 <List >
-                            <List.Item className={classes.listItem}>{result.name}</List.Item>
-                            <Divider my="xs" />
+                    <List.Item className={classes.listItem}>{result.name}</List.Item>
+                    <Divider my="xs" />
                 </List>
                 </div>
-
             ))}
 
         </div>
