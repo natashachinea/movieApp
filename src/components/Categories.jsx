@@ -45,3 +45,5 @@ const handleFilterClick = (category) => {
 }
 
 export default Categories;
+
+//fix the styling of the categories section, left margin is too big.

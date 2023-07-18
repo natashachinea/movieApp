@@ -8,12 +8,13 @@ import { MantineProvider } from '@mantine/core';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
-        <MantineProvider withGlobalStyles withNormalizeCSS> 
-        <React.StrictMode>
-                    <BrowserRouter>
-                        <App />
-                    </BrowserRouter>
-                  </React.StrictMode>
+
+        <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'light' }}>
+                    <React.StrictMode>
+                            <BrowserRouter>
+                                <App />
+                            </BrowserRouter>
+                    </React.StrictMode>
         </MantineProvider>,
 );
 

@@ -27,7 +27,7 @@ function PopularTV () {
                     backgroundImage: theme.fn.gradient({ from: 'white', to: 'white', deg: 15 }),
                     color: theme.white,
                 })}>
-            <h2 className='subtitle'>On TV</h2>
+            <h2 className='subtitle'>TV Shows</h2>
                 <Carousel  withIndicators
                            height={350}
                            slideSize="30%"

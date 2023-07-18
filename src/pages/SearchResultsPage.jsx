@@ -7,8 +7,7 @@ import { Pagination} from '@mantine/core';
 import Categories from "../components/Categories.jsx";
 import MediaCard from "../components/MediaCard.jsx";
 import ItemList from "../components/ItemList.jsx";
-import PersonCard from "../components/PersonCard.jsx";
-
+import PersonList from "../components/PersonList.jsx";
 
 
 function SearchResultsPage() {
@@ -40,7 +39,7 @@ function SearchResultsPage() {
                     <ItemList results={results}/>
                 </div>
             case "person":
-                return <PersonCard results={results}/>
+                return <PersonList results={results}/>
 
             default:
                 return <MediaCard results={results}/>
@@ -94,4 +93,5 @@ export default SearchResultsPage;
 
 //details I need to fix:
 // 1. the search bar is not working properly (catch errors, misspells, missing images, and no found titles)
-//2. transform the vote average into rating stars or something similar
+//there is an error in the console when the network fetch is clicked. it says that the api key is missing.
+// the app is crashing when People is clicked.
