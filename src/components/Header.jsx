@@ -1,7 +1,6 @@
 import {
     createStyles,
     Menu,
-    Center,
     Header,
     Container,
     Group,
@@ -18,21 +17,21 @@ const useStyles = createStyles((theme) => ({
     },
 
     inner: {
-        height: rem(60),
+        height: rem(70),
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingLeft: theme.spacing.xl,
-        paddingRight: theme.spacing.xl,
+        paddingLeft: theme.spacing.lg,
+        paddingRight: rem(100),
         backgroundColor: 'var(--dark-blue)',
         color: 'white',
     },
 
-    links: {
-        [theme.fn.smallerThan('sm')]: {
-            display: 'none',
-        },
-    },
+    // links: {
+    //     [theme.fn.smallerThan('sm')]: {
+    //         display: 'none',
+    //     },
+    // },
 
 
     link: {
@@ -43,7 +42,7 @@ const useStyles = createStyles((theme) => ({
         textDecoration: 'none',
         color: theme.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[0],
         fontSize: theme.fontSizes.sm,
-        fontWeight: 500,
+        fontWeight: 600,
 
         '&:hover': {
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[5],
@@ -51,7 +50,7 @@ const useStyles = createStyles((theme) => ({
     },
 
     linkLabel: {
-        marginRight: rem(5),
+        marginRight: rem(0),
     },
 }));
 
@@ -64,13 +63,12 @@ export function HeaderAction( ) {
         <Header className={classes.header} >
             <Container className={classes.inner} fluid>
                 <Group style={{marginBottom: 0}}>
-                    <MantineLogo color='teal.4' size={40} />
                 </Group>
-                <Group spacing={5} >
+                <Group spacing={10} >
                     <Menu trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
-                        <Text color='red.7' component={Link} variant='link' to='/' className={classes.link} >Home</Text>
-                        <Text color='red.7' component={Link} variant='link' to='/' className={classes.link} >Movies</Text>
-                        <Text color='red.7' component={Link} variant='link' to='/' className={classes.link} >Tv Shows</Text>
+                        <Text component={Link} variant='link' to='/' className={classes.link} >Home</Text>
+                        <Text component={Link} variant='link' to='/' className={classes.link} >Movies</Text>
+                        <Text component={Link} variant='link' to='/' className={classes.link} >TV shows</Text>
                     </Menu>
                 </Group>
             </Container>

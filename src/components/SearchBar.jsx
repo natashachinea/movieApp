@@ -30,7 +30,7 @@ function SearchBar () {
                     radius="xl"
                     size="lg"
                     rightSection={
-                        <ActionIcon size={32} radius="xl" color={theme.primaryColor} variant="filled">
+                        <ActionIcon size={39} radius="xl" color='teal.3' variant="filled">
                             {theme.dir === 'ltr' ? (
                                 <IconArrowRight size="1.1rem" stroke={1.5} />
                             ) : (
@@ -38,7 +38,7 @@ function SearchBar () {
                             )}
                         </ActionIcon>
                     }
-                    placeholder="Search movies"
+                    placeholder="Type your search here"
                     rightSectionWidth={42}
                     value={query}
                     onChange={handleChange}

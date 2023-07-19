@@ -3,14 +3,43 @@ import {getPopularMovies} from "../Api.jsx";
 import './PopularMovieList.css'
 import { Link } from "react-router-dom";
 import { Carousel } from '@mantine/carousel';
-import {  BackgroundImage } from '@mantine/core';
+import { Card, createStyles, rem, Text} from '@mantine/core';
 
+const useStyles = createStyles((theme) => ({
+    containerPopularMovies: {
+        overflowX: 'visible',
+        height: rem(400),
+    },
+    movieItem: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: rem(10),
+    },
+    image: {
+        borderRadius: rem(10),
+        width: rem(150),
+        height: rem(200),
+    },
+    title: {
+
+        color: 'black',
+        fontSize: rem(20),
+        fontWeight: 700,
+    },
+    subtitle: {
+        color: 'black',
+        fontSize: rem(15),
+        fontWeight: 200,
+    }
+
+}));
 
 function PopularMovieList() {
     const [popularMovies, setPopularMovies] = useState([]);
+    const {classes} = useStyles();
 
     useEffect(() => {
-        // Call the fetch or axios function when the component mounts
         getPopularMovies()
             .then(data => {
                 setPopularMovies(data);
@@ -23,39 +52,45 @@ function PopularMovieList() {
 
 
     return (
-        <div className='container-popular-movies' >
-            <BackgroundImage
-                sx={(theme) => ({
-                    height: '100%',
-                    backgroundImage: theme.fn.gradient({ from: 'white', to: 'white', deg: 135 }),
-                    color: theme.white,
-                })}>
+        <div className={classes.containerPopularMovies} >
+            {/*<BackgroundImage*/}
+            {/*    sx={(theme) => ({*/}
+            {/*        height: '100%',*/}
+            {/*        backgroundImage: theme.fn.gradient({ from: 'white', to: 'yellow', deg: 135 }),*/}
+            {/*        color: theme.white,*/}
+            {/*    })}>*/}
 
-            <h2 className='subtitle'>Trending</h2>
+            <h2 className='subtitle'>Popular Movies</h2>
                 <Carousel  withIndicators
-                           height={350}
+                           height={450}
                            slideSize="30%"
                            slideGap="sm"
                            loop
                            align="start"
                            slidesToScroll={3}
                            >
-                        {popularMovies.map(movie => (
+
+                    {popularMovies.map(movie => (
+
                             <Carousel.Slide size="15%" gap="sm" key={movie.id} >
-                                <div className='movie-item' >
-                                    <Link to={`/movie/${movie.id}`}>
-                                        <img className='image' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                                             alt={movie.title}/>
-                                    </Link>
-                                    <Link to={`/movie/${movie.id}`}>
-                                        <h3 className='title'>{movie.title}</h3>
-                                    </Link>
-                                    <p className='date'>{movie.release_date}</p>
-                                </div>
+                                <Card>
+                                    <Card.Section className={classes.movieItem} >
+                                            <Link to={`/movie/${movie.id}`}>
+                                                <img className={classes.image} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                                     alt={movie.title}/>
+                                            </Link>
+                                        </Card.Section>
+                                        <Card.Section>
+                                            <Link to={`/movie/${movie.id}`}>
+                                                <Text className={classes.title} >{movie.title}</Text>
+                                                <Text className={classes.subtitle}>{movie.release_date}</Text>
+                                            </Link>
+                                        </Card.Section>
+                                </Card>
                             </Carousel.Slide>
                         ))}
                 </Carousel>
-            </BackgroundImage>
+            {/*</BackgroundImage>*/}
         </div>
     );
 }
