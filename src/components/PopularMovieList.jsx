@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {getPopularMovies} from "../Api.jsx";
-import './PopularMovieList.css'
 import { Link } from "react-router-dom";
 import { Carousel } from '@mantine/carousel';
-import { Card, createStyles, rem, Text} from '@mantine/core';
+import {BackgroundImage, Card, createStyles, rem, Text} from '@mantine/core';
+import {format, parseISO} from "date-fns";
 
 const useStyles = createStyles((theme) => ({
     containerPopularMovies: {
@@ -49,6 +49,11 @@ function PopularMovieList() {
             });
     }, []);
 
+    const formatDate = (date) => {
+        return format(parseISO(date), 'MMM dd, yyyy');
+    };
+
+
 
 
     return (
@@ -83,7 +88,10 @@ function PopularMovieList() {
                                         <Card.Section>
                                             <Link to={`/movie/${movie.id}`}>
                                                 <Text className={classes.title} >{movie.title}</Text>
-                                                <Text className={classes.subtitle}>{movie.release_date}</Text>
+                                                { movie.release_date ?
+                                                    <Text className={classes.subtitle}>
+                                                        {formatDate(movie.release_date)}
+                                                    </Text> : null}
                                             </Link>
                                         </Card.Section>
                                 </Card>
