@@ -45,7 +45,7 @@ const useStyles = createStyles((theme) => ({
 
 }));
 
-function PopularTV () {
+function PopularTVCarousel () {
     const [popularShows, setPopularShows] = useState([]);
     const {classes} = useStyles();
 
@@ -75,7 +75,18 @@ function PopularTV () {
                        loop
                        align="start"
                        slidesToScroll={3}
-                       controlSize={40}
+                       controlSize={50}
+                       styles={{
+                           indicator: {
+                               width: rem(12),
+                               height: rem(4),
+                               transition: 'width 250ms ease',
+
+                               '&[data-active]': {
+                                   width: rem(40),
+                               },
+                           },
+                       }}
             >
 
                 {popularShows.map(tv => (
@@ -105,4 +116,4 @@ function PopularTV () {
     );
 }
 
-export default PopularTV;
+export default PopularTVCarousel;

@@ -13,11 +13,11 @@ import {Link} from "react-router-dom";
 const useStyles = createStyles((theme) => ({
     header: {
         marginBottom: rem(0),
-        height: rem(60),
+        height: rem(50),
     },
 
     inner: {
-        height: rem(70),
+        height: rem(60),
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',

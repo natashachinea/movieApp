@@ -1,6 +1,6 @@
 import SearchBar from "../components/SearchBar.jsx";
-import PopularMovieList from "../components/PopularMovieList.jsx";
-import PopularTV from "../components/PopularTV.jsx";
+import PopularMovieCarousel from "../components/PopularMovieCarousel.jsx";
+import PopularTVCarousel from "../components/PopularTVCarousel.jsx";
 import { createStyles, Container, Title, Text, Button, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -95,8 +95,8 @@ export function HomePage() {
                 </Container>
             </div>
             <Container size="lg">
-                <PopularMovieList/>
-                <PopularTV/>
+                <PopularMovieCarousel/>
+                <PopularTVCarousel/>
             </Container>
         </div>
     );

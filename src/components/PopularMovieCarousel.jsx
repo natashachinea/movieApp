@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
 
 }));
 
-function PopularMovieList() {
+function PopularMovieCarousel() {
     const [popularMovies, setPopularMovies] = useState([]);
     const {classes} = useStyles();
 
@@ -123,4 +123,4 @@ function PopularMovieList() {
     );
 }
 
-export default PopularMovieList;
+export default PopularMovieCarousel;

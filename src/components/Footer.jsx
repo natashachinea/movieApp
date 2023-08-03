@@ -5,11 +5,10 @@ const useStyles = createStyles((theme) => ({
     footer: {
         marginTop: rem(50),
         marginBottom: rem(0),
-        marginLeft: rem(0),
-        marginRight: rem(0),
-        height: rem(60),
-
-        borderTop: `${rem(1)} solid ${
+        width: '100%',
+        height: rem(100),
+        backgroundColor: 'var(--dark-blue)',
+            borderTop: `${rem(1)} solid ${
             theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
         }`,
     },
@@ -18,16 +17,10 @@ const useStyles = createStyles((theme) => ({
         display: 'flex',
         justifyContent: 'stretch',
         alignItems: 'center',
-        paddingTop: theme.spacing.xl,
-        paddingBottom: theme.spacing.xl,
-        backgroundColor: 'var(--dark-blue)',
         color: 'white',
-
-        [theme.fn.smallerThan('xs')]: {
-            flexDirection: 'column',
-        },
+        paddingTop: rem(10),
+        paddingBottom: rem(20),
     },
-
     links: {
         [theme.fn.smallerThan('xs')]: {
             marginTop: theme.spacing.md,
