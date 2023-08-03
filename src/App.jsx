@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.jsx";
 import {HeaderAction} from "./components/Header.jsx";
 import MovieDetailsPage from "./pages/MovieDetailsPage.jsx";
 import TVShowDetailsPage from "./pages/TVShowDetailsPage.jsx";
+import {Footer} from "./components/Footer.jsx";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/search" element={<SearchResultsPage />} />
 
             </Routes>
+            <Footer />
         </div>
     );
 }

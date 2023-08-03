@@ -24,14 +24,22 @@ const useStyles = createStyles((theme) => ({
     title: {
 
         color: 'black',
-        fontSize: rem(20),
+        fontSize: rem(15),
         fontWeight: 700,
     },
     subtitle: {
         color: 'black',
         fontSize: rem(15),
         fontWeight: 200,
+    },
+    card: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        leftMargin: rem(50),
     }
+
+
 
 }));
 
@@ -67,12 +75,24 @@ function PopularMovieList() {
 
             <h2 className='subtitle'>Popular Movies</h2>
                 <Carousel  withIndicators
-                           height={450}
+                           height={400}
                            slideSize="30%"
                            slideGap="sm"
                            loop
                            align="start"
                            slidesToScroll={3}
+                           controlSize={50}
+                           styles={{
+                               indicator: {
+                                   width: rem(12),
+                                   height: rem(4),
+                                   transition: 'width 250ms ease',
+
+                                   '&[data-active]': {
+                                       width: rem(40),
+                                   },
+                               },
+                           }}
                            >
 
                     {popularMovies.map(movie => (
@@ -85,7 +105,7 @@ function PopularMovieList() {
                                                      alt={movie.title}/>
                                             </Link>
                                         </Card.Section>
-                                        <Card.Section>
+                                        <Card.Section className={classes.card}>
                                             <Link to={`/movie/${movie.id}`}>
                                                 <Text className={classes.title} >{movie.title}</Text>
                                                 { movie.release_date ?

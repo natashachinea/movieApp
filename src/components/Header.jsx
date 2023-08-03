@@ -26,14 +26,6 @@ const useStyles = createStyles((theme) => ({
         backgroundColor: 'var(--dark-blue)',
         color: 'white',
     },
-
-    // links: {
-    //     [theme.fn.smallerThan('sm')]: {
-    //         display: 'none',
-    //     },
-    // },
-
-
     link: {
         display: 'block',
         lineHeight: 1,

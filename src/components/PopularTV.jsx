@@ -25,13 +25,22 @@ const useStyles = createStyles((theme) => ({
     title: {
 
         color: 'black',
-        fontSize: rem(20),
+        fontSize: rem(15),
         fontWeight: 700,
+
     },
     subtitle: {
         color: 'black',
         fontSize: rem(15),
         fontWeight: 200,
+        leftPadding: rem(10),
+
+    },
+    card: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        leftMargin: rem(50),
     }
 
 }));
@@ -60,12 +69,13 @@ function PopularTV () {
         <div className={classes.containerPopularMovies} >
             <h2 className='subtitle'>Trending on TV</h2>
             <Carousel  withIndicators
-                       height={450}
+                       height={400}
                        slideSize="30%"
                        slideGap="sm"
                        loop
                        align="start"
                        slidesToScroll={3}
+                       controlSize={40}
             >
 
                 {popularShows.map(tv => (
@@ -78,7 +88,7 @@ function PopularTV () {
                                          alt={tv.title}/>
                                 </Link>
                             </Card.Section>
-                            <Card.Section>
+                            <Card.Section className={classes.card}>
                                 <Link to={`/tv/${tv.id}`}>
                                     <Text className={classes.title} >{tv.original_name}</Text>
                                     {tv.first_air_date ?
