@@ -66,12 +66,6 @@ function PopularMovieCarousel() {
 
     return (
         <div className={classes.containerPopularMovies} >
-            {/*<BackgroundImage*/}
-            {/*    sx={(theme) => ({*/}
-            {/*        height: '100%',*/}
-            {/*        backgroundImage: theme.fn.gradient({ from: 'white', to: 'yellow', deg: 135 }),*/}
-            {/*        color: theme.white,*/}
-            {/*    })}>*/}
 
             <h2 className='subtitle'>Popular Movies</h2>
                 <Carousel  withIndicators
@@ -118,7 +112,6 @@ function PopularMovieCarousel() {
                             </Carousel.Slide>
                         ))}
                 </Carousel>
-            {/*</BackgroundImage>*/}
         </div>
     );
 }

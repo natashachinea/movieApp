@@ -1,18 +1,76 @@
 import '../pages/MovieDetailsPage.css';
+import {createStyles, rem} from "@mantine/core";
+
+const useStyles = createStyles((theme) => ({
+    bgImage: {
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: rem(500),
+        width:'100%',
+        position: 'absolute',
+        zIndex: '-1', // this is the key
+
+    },
+    detailsContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        width: '100%',
+        marginBottom: rem(30),
+        marginLeft: rem(50),
+        marginRight: rem(20),
+        overflowX: 'hidden',
+        zIndex: '1',
+    },
+    poster: {
+        width: rem(300),
+        height: rem(450),
+        marginRight: rem(20),
+        marginTop: rem(20),
+        borderRadius: rem(10),
+        flexBasis: '30%',
+    },
+    details: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        flexBasis: '70%',
+        width: '50%',
+        marginLeft: rem(20),
+
+
+    },
+
+//     .movie-details {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     justify-content: center;
+//     flex-basis:900px;
+//     width: 50%;
+//     margin-left: 20px;
+//     color:white;
+//
+// }
+
+}));
+
 function RenderedDetails ({ movie, genres, tv }) {
+    const {classes} = useStyles();
     if (movie) {
     return (
             <div>
-                <div className='bg-image' style={{
+                <div className={classes.bgImage} style={{
                     backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     opacity: '0.7',
                 }}></div>
 
-                <div className='movie-details-container'>
-                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}/>
-                    <div className='movie-details'>
+                <div className={classes.detailsContainer}>
+                    <img className={classes.poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}/>
+                    <div className={classes.details}>
                         <div className='title-section'>
                             <h2>{movie.title}</h2>
                             <p>{movie.release_date} - {genres} - {movie.runtime} mins</p>
