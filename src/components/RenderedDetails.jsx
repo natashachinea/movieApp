@@ -8,7 +8,8 @@ const useStyles = createStyles((theme) => ({
         height: rem(500),
         width:'100%',
         position: 'absolute',
-        zIndex: '-1', // this is the key
+        zIndex: '-1',
+        border:'2px solid red',
 
     },
     detailsContainer: {
@@ -16,11 +17,13 @@ const useStyles = createStyles((theme) => ({
         flexDirection: 'row',
         alignItems: 'flex-start',
         width: '100%',
+        height: '100%',
         marginBottom: rem(30),
         marginLeft: rem(50),
         marginRight: rem(20),
         overflowX: 'hidden',
         zIndex: '1',
+        border: '2px solid black',
     },
     poster: {
         width: rem(300),
@@ -29,6 +32,7 @@ const useStyles = createStyles((theme) => ({
         marginTop: rem(20),
         borderRadius: rem(10),
         flexBasis: '30%',
+        border: '2px solid red',
     },
     details: {
         display: 'flex',
@@ -38,21 +42,10 @@ const useStyles = createStyles((theme) => ({
         flexBasis: '70%',
         width: '50%',
         marginLeft: rem(20),
+        border: '1px solid red',
 
 
     },
-
-//     .movie-details {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     justify-content: center;
-//     flex-basis:900px;
-//     width: 50%;
-//     margin-left: 20px;
-//     color:white;
-//
-// }
 
 }));
 
@@ -60,12 +53,12 @@ function RenderedDetails ({ movie, genres, tv }) {
     const {classes} = useStyles();
     if (movie) {
     return (
-            <div>
+            <div style={{border: '2px solid blue'}}>
                 <div className={classes.bgImage} style={{
                     backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    opacity: '0.7',
+                    opacity: '0.5',
                 }}></div>
 
                 <div className={classes.detailsContainer}>

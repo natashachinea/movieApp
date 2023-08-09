@@ -6,8 +6,6 @@
     margin: 30px 20px 30px 50px;
     overflow-x: hidden;
 
-
-
 }
 
 .movie-details-container img {
@@ -16,8 +14,6 @@
     border-radius: 7px;
     flex-basis: 30%;
     margin: 20px;
-
-
 
 }
 
@@ -58,7 +54,7 @@
     font-style: italic;
     margin-bottom: 50px;
 
-    }
+}
 
 .bg-image {
     background-repeat: no-repeat;
