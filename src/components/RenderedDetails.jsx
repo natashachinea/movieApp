@@ -1,7 +1,15 @@
-import '../pages/MovieDetailsPage.css';
 import {createStyles, rem} from "@mantine/core";
+import {format, parseISO} from "date-fns";
 
 const useStyles = createStyles((theme) => ({
+    page: {
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+        border: '1px solid black',
+        minHeight: '100vh', // 100% of the viewport height
+    },
+
     bgImage: {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -12,27 +20,39 @@ const useStyles = createStyles((theme) => ({
         border:'2px solid red',
 
     },
+    background: {
+        backgroundImage: `linear-gradient(
+          to right,
+          rgba(1.2, 20, 35.3, 1) calc((50vw - 170px) - 340px),
+          rgba(1.2, 20, 35.3, 0.60) 50%,
+          rgba(1.2, 20, 35.3, 0.60) 100%
+        )`,
+        height: '100%',
+    },
+
+
     detailsContainer: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'flex-start',
-        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between  ',
         height: '100%',
         marginBottom: rem(30),
         marginLeft: rem(50),
         marginRight: rem(20),
         overflowX: 'hidden',
         zIndex: '1',
-        border: '2px solid black',
+        border: '4px solid blue',
+        color: 'white',
     },
     poster: {
-        width: rem(300),
+        width: rem(250),
         height: rem(450),
         marginRight: rem(20),
         marginTop: rem(20),
         borderRadius: rem(10),
-        flexBasis: '30%',
-        border: '2px solid red',
+        flexBasis: '22%',
+        zIndex: '2',
     },
     details: {
         display: 'flex',
@@ -43,7 +63,7 @@ const useStyles = createStyles((theme) => ({
         width: '50%',
         marginLeft: rem(20),
         border: '1px solid red',
-
+        zIndex: '2',
 
     },
 
@@ -51,29 +71,48 @@ const useStyles = createStyles((theme) => ({
 
 function RenderedDetails ({ movie, genres, tv }) {
     const {classes} = useStyles();
+    console.log(movie);
+    const formatDate = (date) => {
+        return format(parseISO(date), 'MM/dd/yyyy');
+    };
+    const formatYear = (date) => {
+        return format(parseISO(date), '(yyyy)');
+    };
+    const formatRuntime = (minutes) => {
+        const hours = Math.floor(minutes / 60);
+        const mins = minutes % 60;
+        return `${hours}h ${mins}m`;
+
+    }
+
+
+
     if (movie) {
     return (
-            <div style={{border: '2px solid blue'}}>
-                <div className={classes.bgImage} style={{
-                    backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    opacity: '0.5',
-                }}></div>
-
-                <div className={classes.detailsContainer}>
-                    <img className={classes.poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}/>
-                    <div className={classes.details}>
-                        <div className='title-section'>
-                            <h2>{movie.title}</h2>
-                            <p>{movie.release_date} - {genres} - {movie.runtime} mins</p>
+            <div>
+                    <div className={classes.page}>
+                        <div className={classes.bgImage} style={{
+                        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        }}>
+                            <div className={classes.background}>
+                            </div>
                         </div>
-                        <div className='overview-section'>
-                            <h4>{movie.tagline}</h4>
-                            <h3>Overview</h3>
-                            <p>{movie.overview}</p>
+                        <div className={classes.detailsContainer}>
+                            <img className={classes.poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}/>
+                            <div className={classes.details}>
+                                <div className='title-section'>
+                                    <h2>{movie.title} {formatYear(movie.release_date)}</h2>
+                                    <p>{formatDate(movie.release_date)} | {genres} | {formatRuntime(movie.runtime)}</p>
+                                </div>
+                                <div className='overview-section'>
+                                    <h4>{movie.tagline}</h4>
+                                    <h3>Overview</h3>
+                                    <p>{movie.overview}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
     )}
