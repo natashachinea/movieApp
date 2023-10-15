@@ -64,9 +64,7 @@ const getTVDetails = (tv_id) => {
 }
 
 
-
-
-    const search = (query, category = "multi", page = 1 ) => {
+const search = (query, category = "multi", page = 1 ) => {
         const apiKey = 'd4f76f51ce49c6ba9868883742e5fa03';
 
         return axios.get(`https://api.themoviedb.org/3/search/${category}?api_key=${apiKey}&query=${query}&page=${page}`)

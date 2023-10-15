@@ -30,7 +30,6 @@ function ItemList({results}) {
                 </List>
                 </div>
             ))}
-
         </div>
     )
 }

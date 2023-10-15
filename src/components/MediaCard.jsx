@@ -74,7 +74,4 @@ function MediaCard({results}) {
 
 export default MediaCard;
 
-//display date in card with Moth, day, year format.
-//display overview in card with 2 lines max.
-//tittle font bigger.
 

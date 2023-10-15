@@ -40,7 +40,6 @@ const useStyles = createStyles((theme) => ({
         height: '100%',
         width: '100%',
         zIndex: '1',
-        border: '4px solid blue',
         color: 'white',
         padding: rem(30),
         paddingLeft: '15%',
@@ -62,22 +61,21 @@ const useStyles = createStyles((theme) => ({
         flexBasis: '70%',
         width: '50%',
         paddingLeft: rem(30),
-        border: '1px solid red',
-        fontSize: rem(20),
     },
     facts: {
         paddingTop: rem(0),
         marginTop: rem(0),
+        fontSize: rem(15),
     },
     title: {
-        fontSize: rem(30),
-        fontWeight: '750',
+        fontSize: rem(35),
+        fontWeight: '650',
         marginBottom: rem(0),
     },
     tagline: {
         fontSize: rem(15),
         fontStyle: 'italic',
-        fontWeight: '200',
+        fontWeight: '450',
 
     },
 
@@ -86,7 +84,7 @@ const useStyles = createStyles((theme) => ({
 
 function RenderedDetails ({ movie, genres, tv }) {
     const {classes} = useStyles();
-    console.log(tv);
+    console.log(movie);
     const formatDate = (date) => {
         return format(parseISO(date), 'MM/dd/yyyy');
     };
@@ -97,10 +95,7 @@ function RenderedDetails ({ movie, genres, tv }) {
         const hours = Math.floor(minutes / 60);
         const mins = minutes % 60;
         return `${hours}h ${mins}m`;
-
     }
-
-
 
 
     if (movie) {
@@ -118,7 +113,7 @@ function RenderedDetails ({ movie, genres, tv }) {
                         <img className={classes.poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}/>
                         <div className={classes.details}>
                             <div>
-                                <h2 className={classes.title}>{movie.title} {formatYear(movie.release_date)}</h2>
+                                <h2 className={classes.title}>{movie.title} </h2> <p className={classes.facts}>{formatYear(movie.release_date)}</p>
                                 <p className={classes.facts}>{formatDate(movie.release_date)} <BsFillRecordFill size={7} /> {genres} <BsFillRecordFill size={7} /> {formatRuntime(movie.runtime)}</p>
                             </div>
                             <div>

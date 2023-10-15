@@ -7,7 +7,6 @@ import TVShowDetailsPage from "./pages/TVShowDetailsPage.jsx";
 import {Footer} from "./components/Footer.jsx";
 
 function App() {
-
     return (
         <div>
 
@@ -18,8 +17,8 @@ function App() {
                 <Route path='/movie/:id' element={<MovieDetailsPage />} />
                 <Route path="/tv/:id" element={<TVShowDetailsPage />} />
                 <Route path="/search" element={<SearchResultsPage />} />
-
             </Routes>
+
             <Footer />
         </div>
     );

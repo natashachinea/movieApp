@@ -24,6 +24,27 @@ function SearchResultsPage() {
     const categoryQuery = searchQuery.get("category")
 
 
+//useEffect hook that runs when the page number changes and updates the results, it's the first thing that runs when the page loads
+    useEffect(() => {
+        const executeSearch = async () => {
+            const response = await search(query, category, page);
+            setResults(response.results);
+            setTotal(response.total_results);
+            setTotalPages(response.total_pages);
+        }
+        if (query) {
+            executeSearch()
+                .catch(error => {
+                    console.error(error);
+                })}
+
+    }, [query, page, category]);
+
+
+
+//getComponents function takes in the category and results and returns the appropriate component from where does it
+// the categoryQuery variable which is the category from the url search params.
+// It's the category that the user clicked on.
     const getComponent = () => {
         switch (categoryQuery) {
             case "movie":
@@ -46,27 +67,10 @@ function SearchResultsPage() {
         }
     }
 
+//handlePageChange is a function that takes a page number and updates the page number in the URL
     const handlePageChange = (newNumber) => {
         navigate(`/search?category=${category}&query=${query}&page=${newNumber}`);
     }
-
-
-
-    useEffect(() => {
-        const executeSearch = async () => {
-            const response = await search(query, category, page);
-            setResults(response.results);
-            setTotal(response.total_results);
-            setTotalPages(response.total_pages);
-        }
-        if (query) {
-            executeSearch()
-                .catch(error => {
-                    console.error(error);
-                })}
-
-    }, [query, page, category]);
-
 
 
     return (

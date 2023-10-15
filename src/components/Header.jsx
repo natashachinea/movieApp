@@ -6,7 +6,7 @@ import {
     Group,
     rem, Text,
 } from '@mantine/core';
-import { MantineLogo } from '@mantine/ds';
+
 import {Link} from "react-router-dom";
 
 
