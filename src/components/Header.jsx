@@ -13,23 +13,24 @@ import {Link} from "react-router-dom";
 const useStyles = createStyles((theme) => ({
     header: {
         marginBottom: rem(0),
+        marginRight: rem(0),
         height: rem(50),
+        position: 'sticky',
+
     },
 
     inner: {
         height: rem(60),
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
         alignItems: 'center',
-        paddingLeft: theme.spacing.lg,
-        paddingRight: rem(100),
         backgroundColor: 'var(--dark-blue)',
         color: 'white',
     },
     link: {
         display: 'block',
         lineHeight: 1,
-        padding: `${rem(8)} ${rem(12)}`,
+        padding: `${rem(4)} ${rem(4)}`,
         borderRadius: theme.radius.sm,
         textDecoration: 'none',
         color: theme.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[0],
@@ -59,8 +60,8 @@ export function HeaderAction( ) {
                 <Group spacing={10} >
                     <Menu trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
                         <Text component={Link} variant='link' to='/' className={classes.link} >Home</Text>
-                        <Text component={Link} variant='link' to='/' className={classes.link} >Movies</Text>
-                        <Text component={Link} variant='link' to='/' className={classes.link} >TV shows</Text>
+                        <Text component={Link} variant='link' to='/' className={classes.link} >Placeholder</Text>
+                        <Text component={Link} variant='link' to='/' className={classes.link} >Placeholder</Text>
                     </Menu>
                 </Group>
             </Container>

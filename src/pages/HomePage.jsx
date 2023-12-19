@@ -1,7 +1,7 @@
 import SearchBar from "../components/SearchBar.jsx";
 import PopularMovieCarousel from "../components/PopularMovieCarousel.jsx";
 import PopularTVCarousel from "../components/PopularTVCarousel.jsx";
-import { createStyles, Container, Title, Text, Button, rem } from '@mantine/core';
+import { createStyles, Container, Title, Text, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
     root: {

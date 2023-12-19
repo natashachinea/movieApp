@@ -11,7 +11,7 @@ const handleFilterClick = (category) => {
     return (
         <div className="container">
             <div className="label">
-                <div>Search Results</div>
+                <h3>Search Results</h3>
             </div>
             <div className="categories">
                 <ul className='links'>

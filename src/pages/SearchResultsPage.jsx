@@ -50,15 +50,12 @@ function SearchResultsPage() {
             case "movie":
             case "tv":
             case "collection":
-                return <div>
-                    <MediaCard results={results}/>
-                </div>
+                return <MediaCard results={results}/>
+
             case "keyword":
             case "company":
             case "network":
-                return  <div>
-                    <ItemList results={results}/>
-                </div>
+                return  <ItemList results={results}/>
             case "person":
                 return <PersonList results={results}/>
 
@@ -74,7 +71,7 @@ function SearchResultsPage() {
 
 
     return (
-        <div >
+        <div className='resultsPageLayout'>
             <div className='bar'>
                 <SearchBar />
             </div>
@@ -82,10 +79,8 @@ function SearchResultsPage() {
                 <div className='categories-section'>
                     <Categories query={query} category={category} page={page}/>
                 </div>
-                <div className="search-results">
-                    {getComponent()}
-                </div>
-                </div>
+                <div className="search-results">{getComponent()}</div>
+            </div>
             <div className='pagination'>
                 <Pagination value={page} onChange={handlePageChange} total={totalPages} />
             </div>
@@ -98,4 +93,4 @@ export default SearchResultsPage;
 //details I need to fix:
 // 1. the search bar is not working properly (catch errors, misspells, missing images, and no found titles)
 //there is an error in the console when the network fetch is clicked. it says that the api key is missing.
-// the app is crashing when People is clicked.
+//the whole page is not responsive and the pagination is not working properly

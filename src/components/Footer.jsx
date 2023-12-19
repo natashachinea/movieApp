@@ -3,10 +3,12 @@ import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/
 
 const useStyles = createStyles((theme) => ({
     footer: {
-        marginTop: rem(50),
+        // marginTop: rem(50),
         marginBottom: rem(0),
         width: '100%',
-        height: rem(100),
+        height: rem(60),
+        position: 'relative',
+        bottom: 0,
         backgroundColor: 'var(--dark-blue)',
             borderTop: `${rem(1)} solid ${
             theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
@@ -20,7 +22,7 @@ const useStyles = createStyles((theme) => ({
         alignItems: 'center',
         color: 'white',
         paddingTop: rem(10),
-        paddingBottom: rem(20),
+        // paddingBottom: rem(20),
     },
     links: {
         [theme.fn.smallerThan('xs')]: {

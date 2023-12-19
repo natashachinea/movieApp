@@ -3,6 +3,7 @@ import { getMovieDetails } from "../Api.jsx";
 import { useParams } from "react-router-dom";
 import RenderedDetails from "../components/RenderedDetails.jsx";
 
+
 function MovieDetailsPage() {
     const [movie, setMovie] = useState({});
     const [loading, setLoading] = useState(true);

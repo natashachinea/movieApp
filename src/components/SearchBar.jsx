@@ -5,9 +5,9 @@ import { IconSearch, IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
 
 function SearchBar () {
     const [query, setQuery] = useState("");
-    const [searchParams, setSearchParams] = useSearchParams();
+    // const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
-    const location = useLocation();
+    // const location = useLocation();
     const theme = useMantineTheme();
 
 

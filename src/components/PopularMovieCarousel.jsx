@@ -4,65 +4,17 @@ import { Link } from "react-router-dom";
 import { Carousel } from '@mantine/carousel';
 import {BackgroundImage, Card, createStyles, rem, Text} from '@mantine/core';
 import {format, parseISO} from "date-fns";
-
-const useStyles = createStyles((theme) => ({
-    containerPopularMovies: {
-        overflowX: 'visible',
-        height: rem(400),
-    },
-    movieItem: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: rem(10),
-    },
-    image: {
-        borderRadius: rem(10),
-        width: rem(150),
-        height: rem(200),
-    },
-    title: {
-
-        color: 'black',
-        fontSize: rem(15),
-        fontWeight: 700,
-    },
-    subtitle: {
-        color: 'black',
-        fontSize: rem(15),
-        fontWeight: 200,
-    },
-    card: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        leftMargin: rem(50),
-    }
+import useCarousel from "../hooks/use-carousel.jsx";
 
 
-
-}));
 
 function PopularMovieCarousel() {
-    const [popularMovies, setPopularMovies] = useState([]);
-    const {classes} = useStyles();
+    const {popularMovies, classes} = useCarousel()
 
-    useEffect(() => {
-        getPopularMovies()
-            .then(data => {
-                setPopularMovies(data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
 
     const formatDate = (date) => {
         return format(parseISO(date), 'MMM dd, yyyy');
     };
-
-
-
 
     return (
         <div className={classes.containerPopularMovies} >

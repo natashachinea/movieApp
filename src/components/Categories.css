@@ -1,9 +1,12 @@
 .container {
+    font-size: 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border: lightgrey solid 1px;
-    min-width: 230px;
+    margin-right: 15px;
+    /*width: 260px;*/
+    /*height: 300px;*/
     border-radius: 12px;
     background:var(--light-blue);
     box-shadow: #cccccc 0px 0px 5px 0px;
@@ -11,12 +14,19 @@
 }
 
 .label {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
     padding: 20px;
     color: white;
     font-weight: bold;
+    height: 64px;
+    width: 258px;
+}
+
+.label h3 {
+    margin: 0px;
+    padding: 5px;
 }
 
 .categories {
@@ -29,23 +39,30 @@
 }
 
 .links {
+    padding: 0px;
 
-    line-height: 35px;
+
 }
 
 .categories li {
     list-style: none;
+    padding-left: 20px;
+    margin:0px;
+    color: #333333;
+    line-height: 40px;
 }
 
 
 .categories li:hover {
-    font-weight: bold;
     background: #cccccc;
     cursor: pointer;
 }
 
-ul:visited {
-    font-weight: bold;
+.categories li:active {
     background: #cccccc;
+}
+ul:visited {
+    background: #cccccc;
+
 }
 

@@ -1,74 +1,37 @@
-import {Card, createStyles, Flex, rem, Text} from "@mantine/core";
 import {Link} from "react-router-dom";
 import Image from "./Image.jsx";
+import './MediaCard.css';
 
 
-const useStyles = createStyles((theme) => ({
-    card: {
-        borderRadius: rem(10),
-        border: 'lightgray solid 1px',
-        maxHeight: rem(160),
-        minHeight: rem(160),
-        width: rem(1000),
-        padding: rem(0),
-        margin: rem(10),
-        overflow: 'hidden',
-        boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-    },
-    image: {
-        margin: rem(0),
-        padding: rem(0),
-        height: "auto",
-    },
-    description: {
-        padding: rem(10),
-        margin:'0%',
-        overflow: 'hidden',
 
-    }
-}));
 function MediaCard({results}) {
-    const {classes} = useStyles();
 
+
+    const isMovieOrTv = (mediaType) => {
+       return results.media_type === mediaType
+    }
 
     return (
-        <div>
-            <div className="movie-card">
+            <div className='card'>
                     {results.map((result) => (
-                        <Card className={classes.card} style={{padding: 0}} key={result.id}>
-                            <Flex justify="flex-start"
-                                  align="flex-start"
-                                  direction="row">
-                                <Card.Section className={classes.image}>
-                                    <Link to={`/${result.media_type}/${result.id}`}>
+                        <Link to={`/${result.media_type}/${result.id}`}>
+                            <div className='card-container' key={result.id}>
+                                <div className='card-image-item'>
                                         <Image src={result.poster_path} alt={result.title}/>
-                                    </Link>
-                                </Card.Section>
-                                <Card.Section className={classes.description} style={{margin: 0}}>
-                                    <Flex
-                                        align="flex-start"
-                                        justify='flex-start'
-                                        direction="column"
-                                        gap='5px'>
-                                        <div className={classes.title}>
-                                            <Link to={`/tv/${result.id}`}>
-                                                <Text fz="sm" fw={700}>{result.name}</Text>
-                                            </Link>
-                                            <Link to={`/movie/${result.id}`}>
-                                                <Text fz="sm" fw={700}>{result.title}</Text>
-                                            </Link>
+                                </div>
+                                <div className='description-container'>
+                                        <div className='title-item'>
+                                            <div> { isMovieOrTv('movie') ?  <p>{result.title}</p> : <p>{result.name}</p> } </div>
                                         </div>
-                                        <Text fz='xs' c='dimmed'> Release date: {result.release_date}{result.first_air_date}</Text>
-                                        <Text mt='sm' c='dimmed' fz='xs'>
-                                            {result.overview}
-                                        </Text>
-                                    </Flex>
-                                </Card.Section>
-                            </Flex>
-                        </Card>
+                                        <div className='release-date-item'> Release date:
+                                            { result.media_type === 'movie' ? result.release_date : result.first_air_date }
+                                        </div>
+                                        <div className='overview-item'>Overview: {result.overview}</div>
+                                </div>
+                            </div>
+                        </Link>
                     ))}
             </div>
-        </div>
     )
 }
 

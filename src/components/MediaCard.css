@@ -1,0 +1,81 @@
+
+/*!*CARD COMPONENT LAYOUT*!*/
+/*.card-container {*/
+
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: flex-start;*/
+/*    justify-content: flex-start;*/
+/*    border-radius: 10px;*/
+/*    border: 1px solid lightgray;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+/*    !*Background-color: orangered;*!*/
+/*}*/
+
+/*.description-container {*/
+
+/*    flex: 1;*/
+/*    background-color: blue;*/
+/*    overflow: hidden;*/
+/*}*/
+
+
+/*.card-image-item {*/
+/*    width: fit-content;*/
+/*    flex-basis: fit-content;*/
+/*    background-color: orange;*/
+/*}*/
+
+
+/*!*CARD COMPONENT CONTENT*!*/
+
+/*.description-container {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: flex-start;*/
+/*}*/
+
+/*.title-item {*/
+/*    background-color: green;*/
+/*    font-size: 20px;*/
+/*    flex: 1 1 auto;*/
+
+
+
+/*}*/
+
+/*.release-date-item {*/
+/*    background-color: yellow;*/
+/*    font-size: 15px;*/
+/*    flex: 1 1 auto;*/
+
+/*}*/
+
+/*.overview-item {*/
+/*    background-color: pink;*/
+/*    text-overflow: ellipsis;*/
+/*    flex: 1 0 auto;*/
+
+
+/*}*/
+
+
+
+/*!*STYLING DETAILS *!*/
+
+/*img {*/
+/*    width: 130px;*/
+/*    height: fit-content;*/
+/*}*/
+
+/*!*IMAGE CONTAINER FROM IMAGE COMPONENT*!*/
+/*.image-container {*/
+/*    width: fit-content;*/
+/*    overflow: hidden;*/
+
+/*}*/
+
+/*.card > a {*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*}*/

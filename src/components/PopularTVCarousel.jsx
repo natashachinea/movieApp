@@ -1,64 +1,13 @@
-import React, {useEffect, useState} from "react";
-import {getPopularTV} from "../Api.jsx";
 import { Link } from "react-router-dom";
 import { Carousel } from '@mantine/carousel';
-import {BackgroundImage, Card, createStyles, rem, Text} from '@mantine/core';
+import { Card, rem, Text} from '@mantine/core';
 import {format, parseISO} from "date-fns";
+import useCarousel from "../hooks/use-carousel.jsx";
 
 
-const useStyles = createStyles((theme) => ({
-    containerPopularMovies: {
-        overflowX: 'visible',
-        height: rem(400),
-    },
-    movieItem: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: rem(10),
-    },
-    image: {
-        borderRadius: rem(10),
-        width: rem(150),
-        height: rem(200),
-    },
-    title: {
-
-        color: 'black',
-        fontSize: rem(15),
-        fontWeight: 700,
-
-    },
-    subtitle: {
-        color: 'black',
-        fontSize: rem(15),
-        fontWeight: 200,
-        leftPadding: rem(10),
-
-    },
-    card: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        leftMargin: rem(50),
-    }
-
-}));
 
 function PopularTVCarousel () {
-    const [popularShows, setPopularShows] = useState([]);
-    const {classes} = useStyles();
-
-
-    useEffect(() => {
-        getPopularTV()
-            .then(data => {
-                setPopularShows(data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
+    const {popularMedia, classes} = useCarousel();
 
     const formatDate = (date) => {
         return format(parseISO(date), 'MMM dd, yyyy');
@@ -89,9 +38,9 @@ function PopularTVCarousel () {
                        }}
             >
 
-                {popularShows.map(tv => (
+                {popularMedia.map(tv => (
 
-                    <Carousel.Slide size="15%" gap="sm" key={tv.id} >
+                    <Carousel.Slide size="15%" gap="sm" key={tv.id}>
                         <Card>
                             <Card.Section className={classes.movieItem} >
                                 <Link to={`/tv/${tv.id}`}>
