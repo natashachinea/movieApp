@@ -2,7 +2,9 @@ import {useState, useEffect } from "react";
 import { getTVDetails } from "../Api.jsx";
 import { useParams } from "react-router-dom";
 import RenderedDetails from "../components/RenderedDetails.jsx";
-
+import {HeaderAction} from "../components/Header.jsx";
+import {Footer} from "../components/Footer.jsx";
+import {Container} from "../components/styles/DetailsPage.styled";
 function TVShowDetailsPage() {
     const [TVShow, setTVShow] = useState({});
     const [loading, setLoading] = useState(true);
@@ -31,9 +33,17 @@ function TVShowDetailsPage() {
         return <div>Loading...</div>
     }
     return (
-        <div>
-            <RenderedDetails tv={TVShow} genres={genres}/>
-        </div>
+        <Container>
+            <div className='item-1'>
+                <HeaderAction />
+            </div>
+            <div className='item-2'>
+                <RenderedDetails tv={TVShow} genres={genres}/>
+            </div>
+            <div className='item-3'>
+                <Footer />
+            </div>
+        </Container>
     )
 }
 

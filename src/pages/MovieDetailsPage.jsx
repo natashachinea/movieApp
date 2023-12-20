@@ -2,6 +2,9 @@ import {useState, useEffect } from "react";
 import { getMovieDetails } from "../Api.jsx";
 import { useParams } from "react-router-dom";
 import RenderedDetails from "../components/RenderedDetails.jsx";
+import {Footer} from "../components/Footer.jsx";
+import {HeaderAction} from "../components/Header.jsx";
+import {Container} from "../components/styles/DetailsPage.styled.js";
 
 function MovieDetailsPage() {
     const [movie, setMovie] = useState({});
@@ -28,12 +31,20 @@ function MovieDetailsPage() {
     const genres = movie?.genres?.map(genre => genre.name).join(', ')
 
     if(loading) {
-        return <div>Loading...</div>
+        return <p>Loading...</p>
     }
     return (
-        <div>
-            <RenderedDetails movie={movie} genres={genres}/>
-        </div>
+        <Container>
+            <div className='item-1'>
+                <HeaderAction />
+            </div>
+            <div className='item-2'>
+                <RenderedDetails movie={movie} genres={genres}/>
+            </div>
+            <div className='item-3'>
+                <Footer />
+            </div>
+        </Container>
     )
 }
 

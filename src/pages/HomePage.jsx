@@ -1,7 +1,9 @@
 import SearchBar from "../components/SearchBar.jsx";
 import PopularMovieCarousel from "../components/PopularMovieCarousel.jsx";
 import PopularTVCarousel from "../components/PopularTVCarousel.jsx";
-import { createStyles, Container, Title, Text, Button, rem } from '@mantine/core';
+import {createStyles, Container, Title, Text, Button, rem, Header} from '@mantine/core';
+import {Footer} from "../components/Footer.jsx";
+import { HeaderAction} from "../components/Header.jsx";
 
 const useStyles = createStyles((theme) => ({
     root: {
@@ -70,6 +72,7 @@ export function HomePage() {
     const { classes } = useStyles();
     return (
         <div>
+            <HeaderAction />
                 <div className={classes.root}>
                     <Container size="lg">
                         <div className={classes.inner}>
@@ -98,6 +101,7 @@ export function HomePage() {
                 <PopularMovieCarousel/>
                 <PopularTVCarousel/>
             </Container>
+            <Footer />
         </div>
     );
 }

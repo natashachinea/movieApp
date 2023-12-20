@@ -10,7 +10,7 @@ function App() {
     return (
         <div>
 
-            <HeaderAction  />
+
 
             <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -19,7 +19,6 @@ function App() {
                 <Route path="/search" element={<SearchResultsPage />} />
             </Routes>
 
-            <Footer />
         </div>
     );
 }

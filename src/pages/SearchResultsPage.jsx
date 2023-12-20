@@ -8,6 +8,8 @@ import Categories from "../components/Categories.jsx";
 import MediaCard from "../components/MediaCard.jsx";
 import ItemList from "../components/ItemList.jsx";
 import PersonList from "../components/PersonList.jsx";
+import {HeaderAction} from "../components/Header.jsx";
+import {Footer} from "../components/Footer.jsx";
 
 
 function SearchResultsPage() {
@@ -75,6 +77,7 @@ function SearchResultsPage() {
 
     return (
         <div >
+            <HeaderAction />
             <div className='bar'>
                 <SearchBar />
             </div>
@@ -89,6 +92,7 @@ function SearchResultsPage() {
             <div className='pagination'>
                 <Pagination value={page} onChange={handlePageChange} total={totalPages} />
             </div>
+            <Footer />
         </div>
     );
 }

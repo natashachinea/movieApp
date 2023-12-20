@@ -1,35 +1,37 @@
 import {createStyles, rem} from "@mantine/core";
 import {format, parseISO} from "date-fns";
 import {BsFillRecordFill} from "react-icons/bs";
+import {PageContainer, Poster, DetailsContainer, BgImage} from "./styles/RenderedDetails.styled.js";
+
 
 const useStyles = createStyles((theme) => ({
-    page: {
-        display: 'flex',
-        flexDirection: 'column',
-        flex: 1,
-        border: '1px solid black',
-        minHeight: '100vh', // 100% of the viewport height
-    },
+    // page: {
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    //     flex: 1,
+    //     border: '1px solid black',
+    //     minHeight: '100vh', // 100% of the viewport height
+    // },
 
-    bgImage: {
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        height: rem(700),
-        width:'100%',
-        position: 'absolute',
-        zIndex: '-1',
-        border:'2px solid red',
-
-    },
-    background: {
-        backgroundImage: `linear-gradient(
-          to right,
-          rgba(1.2, 20, 35.3, 1) calc((50vw - 170px) - 340px),
-          rgba(1.2, 20, 35.3, 0.60) 50%,
-          rgba(1.2, 20, 35.3, 0.60) 100%
-        )`,
-        height: '100%',
-    },
+    // bgImage: {
+    //     backgroundRepeat: 'no-repeat',
+    //     backgroundPosition: 'center',
+    //     height: rem(700),
+    //     width:'100%',
+    //     position: 'absolute',
+    //     zIndex: '-1',
+    //     border:'2px solid red',
+    //
+    // },
+    // background: {
+    //     backgroundImage: `linear-gradient(
+    //       to right,
+    //       rgba(1.2, 20, 35.3, 1) calc((50vw - 170px) - 340px),
+    //       rgba(1.2, 20, 35.3, 0.60) 50%,
+    //       rgba(1.2, 20, 35.3, 0.60) 100%
+    //     )`,
+    //     height: '100%',
+    // },
 
 
     detailsContainer: {
@@ -45,14 +47,14 @@ const useStyles = createStyles((theme) => ({
         paddingLeft: '15%',
         paddingRight: '15%',
     },
-    poster: {
-        width: rem(250),
-        height: rem(450),
-        marginTop: rem(20),
-        borderRadius: rem(10),
-        flexBasis: rem(300),
-        zIndex: '2',
-    },
+    // poster: {
+    //     width: rem(250),
+    //     height: rem(450),
+    //     marginTop: rem(20),
+    //     borderRadius: rem(10),
+    //     flexBasis: rem(300),
+    //     zIndex: '2',
+    // },
     details: {
         display: 'flex',
         flexDirection: 'column',
@@ -100,67 +102,60 @@ function RenderedDetails ({ movie, genres, tv }) {
 
     if (movie) {
     return (
-            <div>
-                <div className={classes.page}>
-                    <div className={classes.bgImage} style={{
-                        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        }}>
-                        <div className={classes.background}></div>
-                    </div>
-                    <div className={classes.detailsContainer}>
+                <PageContainer>
+                    <BgImage src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title}>
+                             <div>
+                             </div>
+                    </BgImage>
+
+                    <Poster>
                         <img className={classes.poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}/>
-                        <div className={classes.details}>
-                            <div>
-                                <h2 className={classes.title}>{movie.title} </h2> <p className={classes.facts}>{formatYear(movie.release_date)}</p>
-                                <p className={classes.facts}>{formatDate(movie.release_date)} <BsFillRecordFill size={7} /> {genres} <BsFillRecordFill size={7} /> {formatRuntime(movie.runtime)}</p>
-                            </div>
-                            <div>
+                    </Poster>
+                    <DetailsContainer>
+                        <>
+                            <h1 className={classes.title}>{movie.title} </h1>
+                            <h2 className={classes.facts}>{formatYear(movie.release_date)}</h2>
+                            <p className={classes.facts}>{formatDate(movie.release_date)} <BsFillRecordFill size={7} /> {genres} <BsFillRecordFill size={7} /> {formatRuntime(movie.runtime)}</p>
+                        </>
+                            <>
                                 <h4 className={classes.tagline}>{movie.tagline}</h4>
                                 <h3>Overview</h3>
                                 {movie.overview === "" ? (<p>No overview available.</p>
                                 ) : (
                                     <p>{movie.overview}</p>
                                 )}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </>
+                    </DetailsContainer>
+            </PageContainer>
     )}
     if (tv) {
         return (
 
-            <div>
-                <div className={classes.page}>
-                    <div className={classes.bgImage} style={{
-                        backgroundImage: `url(https://image.tmdb.org/t/p/original/${tv.backdrop_path})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}>
-                        <div className={classes.background}></div>
-                    </div>
-                    <div className={classes.detailsContainer}>
+            <PageContainer>
+
+                    <BgImage src={`https://image.tmdb.org/t/p/original/${tv.backdrop_path}`} alt={tv.name}>
+                        <div>
+                        </div>
+                    </BgImage>
+                    <Poster>
+
                         <img className={classes.poster} src={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`} alt={tv.name}/>
-                        <div className={classes.details}>
-                            <div>
+                    </Poster>
+                    <DetailsContainer>
+                            <>
                                 <h2 className={classes.title}>{tv.name} {formatYear(tv.first_air_date)}</h2>
                                 <p className={classes.facts}>{formatDate(tv.first_air_date)} <BsFillRecordFill size={7} /> {genres} <BsFillRecordFill size={7} /> {formatRuntime(tv.episode_run_time)}</p>
-                            </div>
-                            <div>
+                            </>
+                            <>
                                 <h4 className={classes.tagline}>{tv.tagline}</h4>
                                 <h3>Overview</h3>
                                 {tv.overview === "" ? (<p>We don't have an overview translated in English. Help us expand our database by adding one. </p>
                                 ) : (
                                     <p>{tv.overview}</p>
                                 )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </>
+                    </DetailsContainer>
+            </PageContainer>
         )
     }
 }
